@@ -3,6 +3,7 @@ import  Card from '../src/components/Card/index'
 import {useEffect,useState} from 'react';
 import axios from 'axios';
 import Filters from '../src/components/Filters/index'
+import Sidebar from '../src/components/sidebar/index'
 
 function App() {
   const [data,setData] = useState([])
@@ -75,22 +76,27 @@ function App() {
   }
   return (
     <div className="App">
-      <div className="row">
-      <div className='col-12'>
-        <Filters categories={categories} filter={filter}></Filters>
-      </div>
-      </div>
-      <div className="row">
-        {
-          data.map((value)=>{
-            return (
-              <div className='col-12 card-sizing'>
-                <Card key={value.id} data={value}></Card>
-              </div>
-            )
-          })
-        }
-      </div>
+      <Sidebar></Sidebar>
+      <section className="home-section">
+        <div className="home-style">
+          <div className="row">
+          <div className='col-12'>
+            <Filters categories={categories} filter={filter}></Filters>
+          </div>
+          </div>
+          <div className="row">
+            {
+              data.map((value)=>{
+                return (
+                  <div className='col-12 card-sizing'>
+                    <Card key={value.id} data={value}></Card>
+                  </div>
+                )
+              })
+            }
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
