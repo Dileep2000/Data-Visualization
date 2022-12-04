@@ -88,8 +88,8 @@ function App() {
             {
               data.map((value)=>{
                 return (
-                  <div className='col-12 card-sizing'>
-                    <Card key={value.id} data={value}></Card>
+                  <div className='col-12 card-sizing' key={value.id}>
+                    <Card data={value}></Card>
                   </div>
                 )
               })
